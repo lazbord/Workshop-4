@@ -13,7 +13,17 @@ export async function user(userId: number) {
   _user.use(bodyParser.json());
 
   // TODO implement the status route
-  // _user.get("/status", (req, res) => {});
+  _user.get("/status/", (req, res) => {
+    res.send("live");
+  });
+
+  _user.get("/getLastReceivedMessage", (req, res) => {
+    res.send({ result: null });
+  });
+
+  _user.get("/getLastSentMessage", (req, res) => {
+    res.send({ result: null });
+  });
 
   const server = _user.listen(BASE_USER_PORT + userId, () => {
     console.log(
